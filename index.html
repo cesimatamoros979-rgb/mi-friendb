@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Una invitación muy especial">
+  <title>Una misión para dos</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <main class="game-shell">
+    <header class="topbar">
+      <div class="brand-mark" aria-label="Una misión para dos">♡</div>
+      <div class="progress-wrap" aria-label="Progreso del juego">
+        <span class="progress-label">MISIÓN DE DOS</span>
+        <div class="progress-track"><div class="progress-bar" id="progressBar"></div></div>
+      </div>
+      <span class="level-counter" id="levelCounter">01 / 03</span>
+    </header>
+
+    <section class="game-screen active" id="levelOne">
+      <div class="screen-copy">
+        <p class="eyebrow">NIVEL 01 <span></span> PREGUNTA IMPORTANTE</p>
+        <h1>¿Quieres salir<br><em>conmigo?</em></h1>
+        <p class="intro">Tengo un plan pequeñito, pero con muchas ganas de verte.</p>
+        <div class="choice-row">
+          <button class="choice-button yes-button" id="yesButton" type="button">Sí, quiero <span>→</span></button>
+          <button class="choice-button no-button" id="noButton" type="button">No <span>×</span></button>
+        </div>
+        <p class="tiny-note" id="noMessage" aria-live="polite">Pista: hay gatitos involucrados.</p>
+      </div>
+      <div class="cat-art cat-art-one" aria-hidden="true">
+        <div class="sun-line"></div>
+        <img src="https://cataas.com/cat/says/di%20que%20si?fontSize=34&fontColor=%23ffffff" alt="" loading="eager">
+        <div class="art-caption">una cita<br>para recordar</div>
+      </div>
+    </section>
+
+    <section class="game-screen" id="levelTwo">
+      <div class="screen-copy wide-copy">
+        <p class="eyebrow">NIVEL 02 <span></span> DISEÑEMOS EL PLAN</p>
+        <h2>¿Dónde te gustaría<br><em>salir?</em></h2>
+        <p class="intro">Elige la aventura que más te apetezca.</p>
+        <div class="plan-options" role="group" aria-label="Opciones de plan">
+          <button class="plan-option" type="button" data-plan="Ir al Danlí el sábado">
+            <span class="option-number">01</span><span>Ir al Danlí el sábado</span><strong>↗</strong>
+          </button>
+          <button class="plan-option" type="button" data-plan="Quedarnos durmiendo juntos">
+            <span class="option-number">02</span><span>Quedarnos durmiendo</span><strong>↗</strong>
+          </button>
+          <button class="plan-option" type="button" data-plan="Inventar otro plan juntos">
+            <span class="option-number">03</span><span>Otro plan juntos</span><strong>↗</strong>
+          </button>
+        </div>
+        <button class="continue-button" id="toFoodButton" type="button" disabled>Continuar <span>→</span></button>
+      </div>
+      <div class="level-cat-gallery" aria-label="Gatitos acompañando la elección del plan">
+        <img src="https://cataas.com/cat?width=220&height=260" alt="Gatito acompañando el plan" loading="lazy">
+        <img src="https://cataas.com/cat?width=220&height=260" alt="Gatito esperando la aventura" loading="lazy">
+        <img src="https://cataas.com/cat?width=220&height=260" alt="Gatito listo para salir" loading="lazy">
+      </div>
+    </section>
+
+    <section class="game-screen" id="levelThree">
+      <div class="screen-copy wide-copy">
+        <p class="eyebrow">NIVEL 03 <span></span> LA PARTE DELICIOSA</p>
+        <h2>¿Qué<br><em>comemos?</em></h2>
+        <p class="intro">Toda gran cita merece una gran elección.</p>
+        <label class="select-label" for="foodSelect">MENÚ DE LA CITA</label>
+        <div class="select-wrap">
+          <select id="foodSelect">
+            <option value="" selected>Elige tu antojo...</option>
+            <option value="Pizza">Pizza</option>
+            <option value="Sushi">Sushi</option>
+            <option value="Tacos">Tacos</option>
+            <option value="Alitas">Alitas</option>
+          </select>
+        </div>
+        <button class="continue-button" id="toSummaryButton" type="button" disabled>Ver resumen <span>→</span></button>
+      </div>
+      <div class="level-cat-gallery food-cat-gallery" aria-label="Gatitos esperando la comida">
+        <img src="https://cataas.com/cat?width=220&height=260" alt="Gatito esperando la comida" loading="lazy">
+        <img src="https://cataas.com/cat?width=220&height=260" alt="Gatito listo para comer" loading="lazy">
+        <img src="https://cataas.com/cat?width=220&height=260" alt="Gatito feliz por la comida" loading="lazy">
+      </div>
+    </section>
+
+    <section class="game-screen summary-screen" id="summaryScreen">
+      <div class="summary-copy">
+        <p class="eyebrow">MISIÓN COMPLETADA <span></span> RESULTADO</p>
+        <h2>Entonces,<br><em>¿saldrías conmigo?</em></h2>
+        <div class="summary-list">
+          <div><span>PLAN ELEGIDO</span><strong id="summaryPlan">—</strong></div>
+          <div><span>VAMOS A COMER</span><strong id="summaryFood">—</strong></div>
+        </div>
+        <label class="terms-row">
+          <input type="checkbox" id="termsCheck">
+          <span class="fake-check"></span>
+          <span>Acepto los términos y condiciones <b>[de quererte mucho]</b></span>
+        </label>
+        <button class="final-button" id="finalButton" type="button" disabled>¡Sí, acepto! <span>♡</span></button>
+        <p class="final-message" id="finalMessage" aria-live="polite"></p>
+      </div>
+      <div class="cat-gallery" aria-label="Dos gatitos celebrando">
+        <img src="https://cataas.com/cat?width=420&height=480" alt="Gatito esperando la cita" loading="lazy">
+        <img src="https://cataas.com/cat?width=420&height=480" alt="Gatito celebrando" loading="lazy">
+        <span class="gallery-note">pspspsps...</span>
+      </div>
+    </section>
+
+    <footer class="footer"><span>HECHO CON INTENCIÓN</span><span>PARA ALGUIEN ESPECIAL</span></footer>
+  </main>
+  <script src="script.js"></script>
+</body>
+</html>
